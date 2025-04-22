@@ -1,0 +1,25 @@
+<form action="/sign-up" method="POST">
+  <div class="input-wrapper">
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" required />
+  </div>
+  <div class="input-wrapper">
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" required />
+  </div>
+  <div class="input-wrapper">
+    <label for="email">Email</label>
+    <input type="email" name="email" required />
+  </div>
+  <div class="input-wrapper">
+    <label for="password">Password</label>
+    <input type="password" name="password" required />
+  </div>
+  <% if (error) { %>
+  <div class="error-msg"><%= error %></div>
+  <% } %>
+  <button type="submit">Sign Up</button>
+  <div class="recover">
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+</form>

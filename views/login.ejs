@@ -1,0 +1,19 @@
+<form action="/login" method="POST">
+  <h2>Login</h2>
+  <div class="input-wrapper">
+    <label for="email">Email</label>
+    <input type="email" name="email" required />
+  </div>
+  <div class="input-wrapper">
+    <label for="password">Password</label>
+    <input type="password" name="password" />
+  </div>
+  <button type="submit">Login</button>
+  <% if (messages.error) { %>
+  <div class="error-msg"><%= messages.error %></div>
+  <% } %>
+  <div class="recover">
+    <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
+    <p>Forgot your password? <a href="/recover-password">Recover</a></p>
+  </div>
+</form>
