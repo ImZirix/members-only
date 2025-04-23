@@ -1,8 +1,14 @@
 <nav>
   <ul>
-    <li><a href="/">Home</a></li>
+    <li><a href="/">Dashboard</a></li>
+    <% if (user && !user.membership_status) { %>
     <li><a href="/join">Join</a></li>
+    <% } %> <% if (user) { %>
+    <li><a href="/new-message">New Message</a></li>
+    <li><a href="/logout" class="logout">Log Out</a></li>
+    <% } else { %>
     <li><a href="/login">Login</a></li>
-    <li><a href="/sign-up">Sign Up</a></li>
+    <li><a href="/sign-up">Signup</a></li>
+    <% } %>
   </ul>
 </nav>

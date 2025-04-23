@@ -1,2 +1,17 @@
-<% if (loggedIn) { %>
-  
+<ul class="msg-wrapper">
+  <% messages.forEach(msg => { %>
+  <li>
+    <% if (user) { %>
+    <strong><%= msg.first_name %></strong>
+    <% } else { %>
+    <strong>Anonymous</strong>
+    <% } %> <%= msg.text %>
+    <small><%= new Date(msg.timestamp).toLocaleString() %></small>
+    <% if (user && user.is_admin){ %>
+    <form action="/delete-message/<%= msg.id %>" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+    <% } %>
+  </li>
+  <% }) %>
+</ul>

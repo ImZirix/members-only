@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("node:path");
 const session = require("express-session");
 const expressEjsLayouts = require("express-ejs-layouts");
-const passport = require("./passport/passportConfig");
+const passport = require("./passportConfig");
 const flash = require("connect-flash");
 const app = express();
 require("dotenv").config();
@@ -12,6 +12,9 @@ const indexRouter = require("./routes/indexRouter");
 const signUpRouter = require("./routes/signUpRouter");
 const loginRouter = require("./routes/loginRouter");
 const joinRouter = require("./routes/joinRouter");
+const logoutRouter = require("./routes/logoutRouter");
+const newMsgRouter = require("./routes/newMsgRouter");
+const deleteRouter = require("./routes/deleteRouter");
 
 // Set up the view engine and views folder
 app.set("view engine", "ejs");
@@ -33,12 +36,19 @@ app.use(
 );
 app.use(passport.session());
 app.use(flash());
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // Routes
 app.use("/", indexRouter);
 app.use("/sign-up", signUpRouter);
 app.use("/login", loginRouter);
 app.use("/join", joinRouter);
+app.use("/logout", logoutRouter);
+app.use("/new-message", newMsgRouter);
+app.use("/delete-message", deleteRouter);
 
 // Start server
 app.listen(process.env.PORT, () => {
