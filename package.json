@@ -4,7 +4,7 @@
   "description": "Members Only - NodeJS Clubhouse  An exclusive forum where members post anonymously. Outsiders see only posts; insiders see authors. Built with Node.js, Express, PostgreSQL, Passport. Features:  ✔ Auth (Bcrypt) ✔ Secret passcode for membership ✔ Admin-controlled deletions",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
