@@ -1,0 +1,20 @@
+# Exported from Render on 2025-04-23T10:27:52Z
+services:
+- type: web
+  name: members-only
+  runtime: node
+  repo: https://github.com/ImZirix/members-only
+  plan: free
+  envVars:
+  - key: SESSION_SECRET
+    sync: false
+  - key: SECRET_PASSCODE
+    sync: false
+  - key: PORT
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  region: frankfurt
+  buildCommand: npm
+  startCommand: node app.js
+version: "1"
